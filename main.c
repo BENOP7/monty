@@ -52,6 +52,7 @@ int main(int argc, char **argv)
 			list[1] = token;
 		interprete(list, line_no);
 	} while (1);
-
+	free_stackint(head);
+	fclose(file);
 	return (0);
 }
