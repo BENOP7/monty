@@ -32,6 +32,7 @@ void interprete(char **list, unsigned int line_no)
 		}
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_no, *list);
+	exit(EXIT_FAILURE);
 }
 
 int isnumber(char *s)
@@ -42,6 +43,11 @@ int isnumber(char *s)
 		return (0);
 	while (s[i])
 	{
+		if (s[i] == '-' && i == 0)
+		{
+			i++;
+			continue;
+		}
 		if (isdigit(s[i]) == 0)
 			return (0);
 		++i;
