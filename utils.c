@@ -12,7 +12,7 @@ void interprete(char **list, unsigned int line_no)
 			{"mul", mul}, {"mod", modo}};
 	unsigned int i = 0;
 
-	if (strcmp(*list, "nop") == 0)
+	if (strcmp(*list, "nop") == 0 || *list[0] == '#')
 		return;
 
 	if (strcmp(*list, "push") == 0)
