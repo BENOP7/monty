@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * div - subtract top two elements of stack
+ * divide - subtract top two elements of stack
  * @stack: stack
  * @line_no:
  *
  */
-void div(stack_t **stack, unsigned int line_no)
+void divide(stack_t **stack, unsigned int line_no)
 {
 	stack_t *low_elt = NULL; 
 	
@@ -14,7 +14,7 @@ void div(stack_t **stack, unsigned int line_no)
 	{
 		if ((*stack)->n == 0)
 		{
-			fprintf(stderr, "L%d: division by zero\n");
+			fprintf(stderr, "L%d: division by zero\n", line_no);
 			exit(EXIT_FAILURE);
 		}
 		low_elt = (*stack)->next;

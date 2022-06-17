@@ -8,7 +8,8 @@ void interprete(char **list, unsigned int line_no)
 {
 	instruction_t instructions[] = {{"pall", print_stackint},
 			{"pint", pint}, {"pop", pop}, {"swap", swap},
-			{"add", add}, {"sub", sub}, {"div", div}, {"mul", mul}};
+			{"add", add}, {"sub", sub}, {"div", divide},
+			{"mul", mul}};
 	unsigned int i = 0;
 
 	if (strcmp(*list, "nop") == 0)
