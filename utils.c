@@ -8,7 +8,7 @@ void interprete(char **list, unsigned int line_no)
 {
 	instruction_t instructions[] = {{"pall", print_stackint},
 			{"pint", pint}, {"pop", pop}, {"swap", swap},
-			{"add", add}};
+			{"add", add}, {"sub", sub}};
 	unsigned int i = 0;
 
 	if (strcmp(*list, "nop") == 0)
@@ -28,7 +28,7 @@ void interprete(char **list, unsigned int line_no)
 			return;
 		}
 	}
-	for (; i < 5; i++)
+	for (; i < 6; i++)
 	{
 		if (strcmp(instructions[i].opcode, *list) == 0)
 		{
