@@ -46,6 +46,8 @@ void pop(stack_t **, unsigned int);
 void swap(stack_t **, unsigned int);
 void add(stack_t **, unsigned int);
 void sub(stack_t **, unsigned int);
+void div(stack_t **, unsigned int);
+void mul(stack_t **, unsigned int);
 int delete_stackint_at_index(stack_t **, unsigned int);
 void interprete(char **, unsigned int);
 int isnumber(char *);
