@@ -11,6 +11,9 @@ void interprete(char **list, unsigned int line_no)
 			{"add", add}};
 	unsigned int i = 0;
 
+	if (strcmp(*list, "nop") == 0)
+		return;
+
 	if (strcmp(*list, "push") == 0)
 	{
 		if (strlen(list[1]) == 0 || isnumber(list[1]) == 0)
