@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 	int line_no = 0;
 	int len = 128;
 	char *token;
-	char *list[] = {NULL, "-"};
+	char *list[] = {NULL, ""};
 	FILE *file = NULL;
 
 	if (argc != 2)

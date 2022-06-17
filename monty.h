@@ -40,6 +40,7 @@ stack_t *add_stackint(stack_t **head, const int n);
 void push(stack_t **, int);
 void free_stackint(stack_t *);
 void print_stackint(stack_t **, unsigned int);
+void pint(stack_t **, unsigned int);
 void interprete(char **, unsigned int);
 int isnumber(char *);
 

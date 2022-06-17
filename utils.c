@@ -6,24 +6,25 @@
 
 void interprete(char **list, unsigned int line_no)
 {
-	instruction_t instructions[] = {{"pall", print_stackint}};
-	__attribute__((unused)) unsigned int i = 0;
+	instruction_t instructions[] = {{"pall", print_stackint},
+			{"pint", pint}};
+	unsigned int i = 0;
 
 	if (strcmp(*list, "push") == 0)
 	{
-		if (isnumber(*(list + 1)))
+		if (strlen(list[1]) == 0 || isnumber(list[1]) == 0)
 		{
-			push(&head, atoi(*(list + 1)));
-			return;
-		}
-		else
-		{
-			fprintf(stderr, "L%d: unknown instruction <opcode>\n",
+			fprintf(stderr, "L%d: usage: push integer\n",
 					line_no);
 			exit(EXIT_FAILURE);
 		}
+		else
+		{
+			push(&head, atoi(list[1]));
+			return;
+		}
 	}
-	for (; i < 1; i++)
+	for (; i < 2; i++)
 	{
 		if (strcmp(instructions[i].opcode, *list) == 0)
 		{
