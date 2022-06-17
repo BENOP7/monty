@@ -65,3 +65,23 @@ void free_stackint(stack_t *head)
 		head = temp;
 	}
 }
+
+/**
+ * stack_len - compute number of elements in linked list
+ * @h: linked list
+ * Return: length of the linked list
+ */
+size_t stack_len(const stack_t *h)
+{
+	size_t len = 0;
+
+	if (!h)
+		return (0);
+	while (h)
+	{
+		++len;
+		h = h->next;
+	}
+
+	return (len);
+}
