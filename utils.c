@@ -52,7 +52,8 @@ int len(char **list)
  */
 int interprete(char **line_toks, unsigned int line_no)
 {
-	instruction_t instructions[] = {{"pall", pall}, {"pint", pint}, {"pop", pop}, {"swap", swap}};
+	instruction_t instructions[] = {{"pall", pall}, {"pint", pint},
+					{"pop", pop}, {"swap", swap}};
 	unsigned int i;
 
 	if (line_toks == NULL)

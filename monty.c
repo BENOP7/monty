@@ -4,7 +4,6 @@
 
 /**
  * file_open - checks if a file is provided on command line and opens the file
- * @file: monty bytecode file
  * @ac: size of argument list
  * @av: list of arguments from the command line
  *
@@ -26,8 +25,6 @@ void file_open(int ac, char **av)
 
 /**
  * free_memory - frees all allocated memory and closes the input file stream
- * @line: line buffer
- * @tokens: token buffer
  *
  */
 void free_memory(void)
@@ -46,6 +43,7 @@ void free_memory(void)
 void create_global(void)
 {
 	globe_t *holder = malloc(sizeof(*holder));
+
 	if (holder == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
@@ -86,7 +84,8 @@ int main(int ac, char **av)
 		global->token_list[i] = NULL;
 		i = 0;
 		global->line_no = ++lno;
-		if ((error = interprete(global->token_list, global->line_no)))
+		error = interprete(global->token_list, global->line_no);
+		if (error)
 			break;
 		memset(line, 0, line_size);
 	}
