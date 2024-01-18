@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void push(char **list, const int n)
+void push(__attribute__((unused)) char **list, const int n)
 {
 	stack_t *top = NULL;
 
@@ -10,8 +10,15 @@ void push(char **list, const int n)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	if (stack_head != NULL)
-		(stack_head)->prev = top;
+	if (stack_head == NULL)
+	{
+		top->n = n;
+		top->prev = NULL;
+		top->next = NULL;
+		stack_head = top;
+		return;
+	}
+	(stack_head)->prev = top;
 	top->next = stack_head;
 	top->prev = NULL;
 	top->n = n;

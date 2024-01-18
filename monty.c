@@ -11,7 +11,7 @@ int main(int ac, char **av)
 	char *tok;
 	int i = 0;
 	int lno = 0;
-	
+
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -35,21 +35,21 @@ int main(int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 
-	while (line = fgets(line, 1024, file))
+	while ((line = fgets(line, 1024, file)))
 	{
 		tok = strtok(line, " \n");
 		while (tok)
 		{
 			tokens[i++] = tok;
-			tok = strtok(NULL, "\n");
+			tok = strtok(NULL, " \n");
 		}
 		tokens[i] = NULL;
 		i = 0;
 		interprete(tokens, lno++);
 	}
-
 	free(line);
 	free(tokens);
+	free_stack();
 	fclose(file);
 	return (EXIT_SUCCESS);
 }

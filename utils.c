@@ -48,6 +48,7 @@ void interprete(char **line_toks, unsigned int line_no)
 			return;
 		}
 		push(line_toks, atoi(line_toks[1]));
+		return;
 	}
 	for (i = 0; i < (sizeof(instructions) / sizeof(*instructions)); i++)
 	{
@@ -56,5 +57,18 @@ void interprete(char **line_toks, unsigned int line_no)
 			instructions[i].f(&stack_head, line_no);
 			return;
 		}
+	}
+}
+
+void free_stack()
+{
+	stack_t *curr = stack_head;
+	stack_t *tmp = NULL;
+
+	while (curr)
+	{
+		tmp = curr->next;
+		free(curr);
+		curr = tmp;
 	}
 }
