@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void push(stack_t **stack, unsigned int line_number, const int n)
+void push(char **list, const int n)
 {
 	stack_t *top = NULL;
 
@@ -10,8 +10,10 @@ void push(stack_t **stack, unsigned int line_number, const int n)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	top->next = (*stack);
+	if (stack_head != NULL)
+		(stack_head)->prev = top;
+	top->next = stack_head;
 	top->prev = NULL;
-	(*stack)->prev = top;
 	top->n = n;
+	stack_head = top;
 }

@@ -1,17 +1,17 @@
 #include "monty.h"
 #include <string.h>
 
+stack_t *stack_head = NULL;
+
 int main(int ac, char **av)
 {
 	FILE *file = NULL;
 	char *line = NULL;
-	char *opcode;
-	char *operand;
-	char *opcode_list[] = {"push", "pall"};
-	instruction_t instructions[] = {{"push", push}, {"pall", pall}};
-	void (*func[])(stack_t **stack, unsigned int line_number, const int n) = {push, pall};
-	int i;
-
+	char **tokens = NULL;
+	char *tok;
+	int i = 0;
+	int lno = 0;
+	
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -25,19 +25,31 @@ int main(int ac, char **av)
 	}
 
 	line = malloc(sizeof(*line) * 1024);
-
-	fgets(line, 1024, file);
-	
-	opcode = strtok(line, " ");
-	operand = strtok(NULL, " ");
-
-	for (i = 0; i < 2; i++)
+	if (line == NULL)
 	{
-		if (strcmp(opcode, opcode_list[i]) == 0)
-		{
-			func[i](my_stack, -1, 
-		}
+		return (EXIT_FAILURE);
 	}
-	
+	tokens = malloc(sizeof(*tokens) * 55);
+	if (tokens == NULL)
+	{
+		return (EXIT_FAILURE);
+	}
 
+	while (line = fgets(line, 1024, file))
+	{
+		tok = strtok(line, " \n");
+		while (tok)
+		{
+			tokens[i++] = tok;
+			tok = strtok(NULL, "\n");
+		}
+		tokens[i] = NULL;
+		i = 0;
+		interprete(tokens, lno++);
+	}
+
+	free(line);
+	free(tokens);
+	fclose(file);
+	return (EXIT_SUCCESS);
 }
