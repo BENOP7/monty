@@ -1,5 +1,12 @@
 #include "monty.h"
 
+
+/**
+ * isnum - checks if the content of a string can be converted to a number
+ * @s: string
+ *
+ * Return: 1 if string is a valid number, 0 otherwise
+ */
 int isnum(char *s)
 {
 	unsigned int i = 0;
@@ -13,13 +20,18 @@ int isnum(char *s)
 			i++;
 			continue;
 		}
-		if (isdigit(s[i]) == 0)
+		if (!isdigit(s[i]))
 			return (0);
 		++i;
 	}
 	return (1);
 }
-
+/**
+ * len - len of list of operands
+ * @list: list of operands
+ *
+ * Return: size of list
+ */
 int len(char **list)
 {
 	int size = 0;
@@ -31,6 +43,12 @@ int len(char **list)
 	return (size);
 }
 
+/**
+ * interprete - executes the line containing the monty instruction
+ * @line_toks: null-terminated list of line tokens
+ * @line_no: line number of line being executed
+ *
+ */
 void interprete(char **line_toks, unsigned int line_no)
 {
 	instruction_t instructions[] = {{"pall", pall}, {"pint", pint}};
@@ -60,6 +78,10 @@ void interprete(char **line_toks, unsigned int line_no)
 		}
 	}
 }
+
+/**
+ * free_stack - free the stack
+ */
 
 void free_stack(void)
 {

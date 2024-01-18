@@ -1,5 +1,11 @@
 #include "monty.h"
 
+
+/**
+ * push - push integer to stack
+ * @n: integer to be pushed
+ *
+ */
 void push(const int n)
 {
 	stack_t *top = NULL;

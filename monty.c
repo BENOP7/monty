@@ -1,7 +1,13 @@
 #include "monty.h"
 #include "globe.h"
 
-
+/**
+ * main - This is where the monty program starts
+ * @ac: number of arguments to the main function
+ * @av: argument list
+ *
+ * Return: EXIT_SUCCESS on completion, otherwise returns EXIT_FAILURE
+ */
 int main(int ac, char **av)
 {
 	FILE *file = NULL;
@@ -24,19 +30,8 @@ int main(int ac, char **av)
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		return (EXIT_FAILURE);
 	}
-
-	line = malloc(sizeof(*line) * line_size);
-	if (line == NULL)
-	{
-		return (EXIT_FAILURE);
-	}
+	allocate_memory(&line, &tokens);
 	line_ptr = line;
-	tokens = malloc(sizeof(*tokens) * 55);
-	if (tokens == NULL)
-	{
-		return (EXIT_FAILURE);
-	}
-
 	while ((line = fgets(line, line_size, file)))
 	{
 		tok = strtok(line, " \n");
@@ -55,4 +50,29 @@ int main(int ac, char **av)
 	free_stack();
 	fclose(file);
 	return (EXIT_SUCCESS);
+}
+
+/**
+ * allocate_memory - allocates buffer to for each line and list of tokens
+ * @line: pointer to the line buffer
+ * @token_list: list of tokens on a single line
+ *
+ */
+void allocate_memory(char **line, char ***token_list)
+{
+	const int line_size = 1024;
+
+	*line = malloc(sizeof(**line) * line_size);
+	if (line == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+	*token_list = malloc(sizeof(**token_list) * 55);
+	if (token_list == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+
 }
