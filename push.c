@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void push(__attribute__((unused)) char **list, const int n)
+void push(const int n)
 {
 	stack_t *top = NULL;
 

@@ -45,9 +45,10 @@ void interprete(char **line_toks, unsigned int line_no)
 	{
 		if (len(line_toks) < 2 || !isnum(line_toks[1]))
 		{
-			return;
+			fprintf(stderr, "L%u: usage: push integer\n", line_no);
+			exit(EXIT_FAILURE);
 		}
-		push(line_toks, atoi(line_toks[1]));
+		push(atoi(line_toks[1]));
 		return;
 	}
 	for (i = 0; i < (sizeof(instructions) / sizeof(*instructions)); i++)
@@ -60,7 +61,7 @@ void interprete(char **line_toks, unsigned int line_no)
 	}
 }
 
-void free_stack()
+void free_stack(void)
 {
 	stack_t *curr = stack_head;
 	stack_t *tmp = NULL;

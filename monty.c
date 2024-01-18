@@ -1,7 +1,6 @@
 #include "monty.h"
-#include <string.h>
+#include "globe.h"
 
-stack_t *stack_head = NULL;
 
 int main(int ac, char **av)
 {
@@ -11,7 +10,7 @@ int main(int ac, char **av)
 	char **tokens = NULL;
 	char *tok;
 	int i = 0;
-	__attribute__((unused)) int lno = 0;
+	int lno = 0;
 	size_t line_size = 1024;
 
 	if (ac != 2)
