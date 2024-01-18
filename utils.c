@@ -74,7 +74,7 @@ int interprete(char **line_toks, unsigned int line_no)
 	{
 		if (strcmp(instructions[i].opcode, line_toks[0]) == 0)
 		{
-			instructions[i].f(&stack_head, line_no);
+			instructions[i].f(&(global->head), line_no);
 			return (EXIT_SUCCESS);
 		}
 	}
@@ -87,7 +87,7 @@ int interprete(char **line_toks, unsigned int line_no)
 
 void free_stack(void)
 {
-	stack_t *curr = stack_head;
+	stack_t *curr = global->head;
 	stack_t *tmp = NULL;
 
 	while (curr)

@@ -22,7 +22,28 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
-extern stack_t *stack_head;
+/**
+ * struct globe_s - global resources like line, line numer, stack, etc
+ * @file: the file to run monty instructions from
+ * @head: the stack
+ * @line: line buffer
+ * @line_no: current execution line number
+ * @token_list: list of token
+ *
+ * Description: holds the line buffer, line no, stacks, tokens
+ * for the program
+ */
+typedef struct globe_s
+{
+	struct stack_s *head;
+	FILE *file;
+	char *line;
+	unsigned int line_no;
+	char **token_list;
+} globe_t;
+
+
+extern globe_t *global;
 
 /**
  * struct instruction_s - opcode and its function
@@ -42,7 +63,7 @@ void push(const int);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 int interprete(char **, unsigned int);
-void allocate_memory(char **, char ***);
+void allocate_memory(void);
 void free_stack(void);
 
 #endif

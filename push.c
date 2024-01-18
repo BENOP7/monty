@@ -16,17 +16,17 @@ void push(const int n)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	if (stack_head == NULL)
+	if (global->head == NULL)
 	{
 		top->n = n;
 		top->prev = NULL;
 		top->next = NULL;
-		stack_head = top;
+		global->head = top;
 		return;
 	}
-	(stack_head)->prev = top;
-	top->next = stack_head;
+	(global->head)->prev = top;
+	top->next = global->head;
 	top->prev = NULL;
 	top->n = n;
-	stack_head = top;
+	global->head = top;
 }
