@@ -1,3 +1,6 @@
+#include "monty.h"
+
+
 /**
  * swap - exchange the top two elements
  * @stack: stack array

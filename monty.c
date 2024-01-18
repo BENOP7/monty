@@ -36,6 +36,7 @@ void free_memory(void)
 	free(global->line);
 	free_stack();
 	fclose(global->file);
+	free(global);
 }
 
 /**
