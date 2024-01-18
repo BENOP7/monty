@@ -38,3 +38,24 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+* pop - remove top interger
+* @stack: pointer to stack
+* @line_number: instruction line number
+*/
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	tmp = *stack;
+	*stack = tmp->next;
+	if (tmp->next)
+		tmp->next->prev = NULL;
+	free(tmp);
+}
