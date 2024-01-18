@@ -65,5 +65,7 @@ void pint(stack_t **stack, unsigned int line_number);
 int interprete(char **, unsigned int);
 void allocate_memory(void);
 void free_stack(void);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 
 #endif
