@@ -48,15 +48,16 @@ int len(char **list)
  * @line_toks: null-terminated list of line tokens
  * @line_no: line number of line being executed
  *
+ * Return: 0 on success, 1 if any error occurs
  */
-void interprete(char **line_toks, unsigned int line_no)
+int interprete(char **line_toks, unsigned int line_no)
 {
 	instruction_t instructions[] = {{"pall", pall}, {"pint", pint}};
 	unsigned int i;
 
 	if (line_toks == NULL)
 	{
-		exit(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 
 	if (strcmp(*line_toks, "push") == 0)
@@ -64,19 +65,20 @@ void interprete(char **line_toks, unsigned int line_no)
 		if (len(line_toks) < 2 || !isnum(line_toks[1]))
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_no);
-			exit(EXIT_FAILURE);
+			return (EXIT_FAILURE);
 		}
 		push(atoi(line_toks[1]));
-		return;
+		return (EXIT_SUCCESS);
 	}
 	for (i = 0; i < (sizeof(instructions) / sizeof(*instructions)); i++)
 	{
 		if (strcmp(instructions[i].opcode, line_toks[0]) == 0)
 		{
 			instructions[i].f(&stack_head, line_no);
-			return;
+			return (EXIT_SUCCESS);
 		}
 	}
+	return (EXIT_FAILURE);
 }
 
 /**
