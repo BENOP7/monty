@@ -15,3 +15,11 @@ void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 		tmp = tmp->next;
 	}
 }
+
+void pint(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	if (*stack != NULL)
+	{
+		printf("%d\n", (*stack)->n);
+	}
+}

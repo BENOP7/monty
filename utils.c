@@ -33,7 +33,7 @@ int len(char **list)
 
 void interprete(char **line_toks, unsigned int line_no)
 {
-	instruction_t instructions[] = {{"pall", pall}};
+	instruction_t instructions[] = {{"pall", pall}, {"pint", pint}};
 	unsigned int i;
 
 	if (line_toks == NULL)
