@@ -10,7 +10,7 @@ void add(stack_t **stack, unsigned int line_no)
 {
 	stack_t *low_elt = NULL;
 	*stack = global->head;
-	
+
 	if (global->head && global->head->next)
 	{
 		low_elt = (global->head)->next;
