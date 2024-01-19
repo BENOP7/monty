@@ -53,13 +53,14 @@ int len(char **list)
 int interprete(char **line_toks, unsigned int line_no)
 {
 	instruction_t instructions[] = {{"pall", pall}, {"pint", pint},
-					{"pop", pop}, {"swap", swap}};
+					{"pop", pop}, {"swap", swap}, {"add", add}};
 	unsigned int i;
 
 	if (line_toks == NULL)
 	{
 		return (EXIT_FAILURE);
 	}
+
 
 	if (strcmp(*line_toks, "push") == 0)
 	{

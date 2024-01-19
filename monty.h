@@ -62,6 +62,7 @@ typedef struct instruction_s
 void push(const int);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void add(stack_t **, unsigned int);
 int interprete(char **, unsigned int);
 void allocate_memory(void);
 void free_stack(void);

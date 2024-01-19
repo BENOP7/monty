@@ -13,12 +13,14 @@ void file_open(int ac, char **av)
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
+		free(global);
 		exit(EXIT_FAILURE);
 	}
 	global->file = fopen(av[1], "r");
 	if (global->file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
+		free(global);
 		exit(EXIT_FAILURE);
 	}
 }
