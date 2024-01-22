@@ -63,7 +63,7 @@ int interprete(char **line_toks, unsigned int line_no)
 		return (EXIT_FAILURE);
 	}
 
-	if (*line_toks == NULL || **line_toks == '\0')
+	if (*line_toks == NULL || **line_toks == '\0' || **line_toks == '#')
 		return (EXIT_SUCCESS);
 
 	if (strcmp(*line_toks, "push") == 0)
