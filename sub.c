@@ -21,7 +21,7 @@ void sub(stack_t **stack, unsigned int line_no)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_no);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_no);
 		free_memory();
 		exit(EXIT_FAILURE);
 	}
