@@ -66,6 +66,8 @@ void pint(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void add(stack_t **, unsigned int);
 void sub(stack_t **, unsigned int);
+void mul(stack_t **, unsigned int);
+void divide(stack_t **, unsigned int);
 int interprete(char **, unsigned int);
 void allocate_memory(void);
 void free_stack(void);
