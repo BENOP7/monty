@@ -61,6 +61,8 @@ int interprete(char **line_toks, unsigned int line_no)
 		return (EXIT_FAILURE);
 	}
 
+	if (*line_toks == NULL || **line_toks == '\0')
+		return (EXIT_SUCCESS);
 
 	if (strcmp(*line_toks, "push") == 0)
 	{
@@ -80,6 +82,7 @@ int interprete(char **line_toks, unsigned int line_no)
 			return (EXIT_SUCCESS);
 		}
 	}
+	fprintf(stderr, "L%u: unknown instruction %s\n", line_no, *line_toks);
 	return (EXIT_FAILURE);
 }
 
