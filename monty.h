@@ -68,6 +68,7 @@ void add(stack_t **, unsigned int);
 void sub(stack_t **, unsigned int);
 void mul(stack_t **, unsigned int);
 void mod(stack_t **, unsigned int);
+void pchar(stack_t **, unsigned int);
 void divide(stack_t **, unsigned int);
 int interprete(char **, unsigned int);
 void allocate_memory(void);

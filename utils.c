@@ -55,7 +55,7 @@ int interprete(char **line_toks, unsigned int line_no)
 	instruction_t instructions[] = {{"pall", pall}, {"pint", pint}, {"nop", nop},
 					{"sub", sub}, {"pop", pop}, {"swap", swap},
 					{"add", add}, {"div", divide}, {"mul", mul},
-					{"mod", mod}};
+					{"mod", mod}, {"pchar", pchar}};
 	unsigned int i;
 
 	if (line_toks == NULL)
