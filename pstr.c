@@ -18,7 +18,7 @@ void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	{
 		if (tmp->n == 0)
 			break;
-		if (!isascii((tmp)->n))
+		if ((tmp)->n < 128)
 			break;
 		putchar(tmp->n);
 		tmp = tmp->next;
