@@ -3,12 +3,11 @@
  * @stack: pointer to stack
  * @line_number: instruction line number
  */
-void rotr(stack_t **stack, unsigned int line_number)
+void rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	stack_t *tmp;
-	(void) line_number;
 
-	if (!stack || !*stack || !(*stack)->next)
+	if (!stack || !*stack)
 		return;
 
 	tmp = *stack;
