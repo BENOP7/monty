@@ -1,7 +1,7 @@
 /**
- * pstr - s
- * @stack: Double linked list
- * @line_number: File line execution
+ * pstr - opcode; prints string from top of stack
+ * @stack: pointer to stack
+ * @line_number: instruction line number
  */
 void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
