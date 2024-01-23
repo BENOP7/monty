@@ -1,3 +1,5 @@
+#include "monty.h"
+
 /**
  * pstr - opcode; prints string from top of stack
  * @stack: pointer to stack
