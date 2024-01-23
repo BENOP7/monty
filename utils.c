@@ -56,7 +56,7 @@ int interprete(char **line_toks, unsigned int line_no)
 					{"sub", sub}, {"pop", pop}, {"swap", swap},
 					{"add", add}, {"div", divide}, {"mul", mul},
 					{"mod", mod}, {"pchar", pchar}, {"rotl", rotl},
-					{"pstr", pstr}};
+					{"pstr", pstr}, {"rotr", rotr}};
 	unsigned int i;
 
 	if (line_toks == NULL)
