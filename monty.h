@@ -74,7 +74,9 @@ int interprete(char **, unsigned int);
 void allocate_memory(void);
 void free_stack(void);
 void free_memory(void);
-void pop(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
+void pop(stack_t **, unsigned int);
+void swap(stack_t **, unsigned int);
+void pstr(stack_t **, unsigned int);
+void rot1(stack_t **, unsigned int);
 
 #endif
