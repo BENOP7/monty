@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * rotr - opcode; rotates the top element
+ * rotl - opcode; rotates the top element
  * @stack: pointer to stack
  * @line_number: instruction line number
  */
-void rot1(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+void rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	stack_t *tm = *stack;
 
